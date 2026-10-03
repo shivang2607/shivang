@@ -28,6 +28,10 @@ export default function RecruiterSection() {
         <h2 className="font-display text-[clamp(1.9rem,4vw,3rem)] font-semibold leading-tight tracking-[-0.02em] text-ink">
           The short version.
         </h2>
+        <p className="mt-3 max-w-2xl text-base leading-relaxed text-muted">
+          Everything a recruiter asks first, in one place. The rest of this
+          page is the evidence.
+        </p>
 
         <Stagger className="mt-12 grid grid-cols-1 gap-x-10 gap-y-9 sm:grid-cols-2 lg:grid-cols-3">
           {recruiterFacts.map((f) => {
