@@ -63,4 +63,23 @@ npm run start   # serve the build
 
 ## Deploy
 
-Vercel-ready. Push, import the repo, add the `shivang2607.com` domain.
+Fully static — `next.config.ts` sets `output: "export"`, so `npm run build`
+writes a plain `./out` directory any static host can serve. No Node server,
+no platform lock-in.
+
+Hosted free on **GitHub Pages**. This repo stays the source of truth;
+`.github/workflows/deploy-pages.yml` builds it and publishes `out/` to the
+separate [`shivang2607.github.io`](https://github.com/shivang2607/shivang2607.github.io)
+repo on every push to `main`, plus a weekly rebuild so the build-time DevLens
+star count in `sections/proof.tsx` stays current.
+
+- Preview URL: https://shivang2607.github.io
+- Production: https://shivang2607.com — apex A records `185.199.108.153`,
+  `185.199.109.153`, `185.199.110.153`, `185.199.111.153`; `www` CNAME →
+  `shivang2607.github.io`. Then add a root `CNAME` file containing
+  `shivang2607.com` and enable "Enforce HTTPS". GitHub redirects the
+  github.io URL to the custom domain once it is set, so point DNS *first*.
+
+`app/sitemap.ts` and `app/robots.ts` carry `export const dynamic = "force-static"`
+because the static export refuses to build them otherwise; the `llms*.txt`
+route handlers already had it.

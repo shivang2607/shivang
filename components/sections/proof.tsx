@@ -5,15 +5,25 @@ import { Stagger, StaggerItem } from "../motion";
 // Live GitHub stars for DevLens, fetched at build time (static output).
 // Falls back to the "50+" copy in content.ts if the API is unreachable.
 async function getDevLensStars(): Promise<number | null> {
+  // GITHUB_TOKEN lifts the unauthenticated 60 req/hr limit, which otherwise
+  // silently drops this stat to the fallback copy in content.ts during CI builds.
+  const token = process.env.GITHUB_TOKEN ?? process.env.GH_TOKEN;
   try {
     const res = await fetch(
       "https://api.github.com/repos/devlensio/devlensOSS",
-      { next: { revalidate: 3600 } }
+      {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        next: { revalidate: 3600 },
+      }
     );
-    if (!res.ok) return null;
+    if (!res.ok) {
+      console.warn(`[proof] GitHub API ${res.status}; falling back to static star count`);
+      return null;
+    }
     const data = (await res.json()) as { stargazers_count?: number };
     return typeof data.stargazers_count === "number" ? data.stargazers_count : null;
-  } catch {
+  } catch (err) {
+    console.warn("[proof] GitHub API unreachable; falling back to static star count", err);
     return null;
   }
 }
