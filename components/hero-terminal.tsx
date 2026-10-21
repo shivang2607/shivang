@@ -88,7 +88,7 @@ export default function HeroTerminal() {
         </div>
 
         {/* terminal body */}
-        <div className="h-[248px] overflow-hidden px-5 py-4 font-mono text-[0.78rem] leading-[1.7] sm:text-[0.8rem]">
+        <div className="h-[288px] overflow-hidden px-5 py-4 font-mono text-[0.78rem] leading-[1.7] sm:text-[0.8rem]">
           {lines.map((line, i) => (
             <p
               key={i}

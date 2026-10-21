@@ -276,7 +276,10 @@ export const terminal = {
     },
     {
       cmd: "cat interests.txt",
-      out: ["systems · AI agents · MCP tooling · SQL tuning"],
+      out: [
+        "architecture · AI agents · agentic workflows",
+        "deep dives into how things work",
+      ],
     },
     {
       cmd: "ls projects/",
@@ -284,7 +287,10 @@ export const terminal = {
     },
     {
       cmd: "ls stack/",
-      out: ["TypeScript  Python  Node.js  SQL  Postgres  Redis"],
+      out: [
+        "TypeScript  Python  Node.js  SQL  Postgres",
+        "React  Next.js  Redis  Docker  AWS  MCP  etc.",
+      ],
     },
   ],
 } as const;
