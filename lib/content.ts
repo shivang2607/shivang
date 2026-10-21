@@ -261,3 +261,30 @@ export const resume = {
     },
   ],
 } as const;
+
+// The hero terminal. It is a shell session about the person - identity, focus,
+// projects, stack - not a fabricated tool output. Same facts as recruiterFacts,
+// typed out. Decorative: the real copy sits in the SSR payload around it.
+export const terminal = {
+  host: "shivang@2607",
+  prompt: "~ %",
+  caption: "fig. 01 - the short version",
+  script: [
+    {
+      cmd: "whoami",
+      out: ["Shivang Khandelwal · full-stack engineer · Oracle"],
+    },
+    {
+      cmd: "cat interests.txt",
+      out: ["systems · AI agents · MCP tooling · SQL tuning"],
+    },
+    {
+      cmd: "ls projects/",
+      out: ["DevLens/   AniverseHD/"],
+    },
+    {
+      cmd: "ls stack/",
+      out: ["TypeScript  Python  Node.js  SQL  Postgres  Redis"],
+    },
+  ],
+} as const;
