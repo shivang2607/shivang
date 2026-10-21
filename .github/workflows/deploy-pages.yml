@@ -55,6 +55,7 @@ jobs:
 
           cd out
           touch .nojekyll   # keep _next/ from being skipped by Jekyll processing
+          echo shivang2607.com > CNAME   # custom domain, so a force-push can't drop it
           git init -q -b main
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
