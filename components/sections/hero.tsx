@@ -53,6 +53,20 @@ export default function HeroSection() {
             </StaggerItem>
             <StaggerItem>
               <a
+                href={site.resumePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-11 items-center gap-2 rounded-full border border-line px-6 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent"
+              >
+                Résumé
+                <FiArrowUpRight
+                  size={13}
+                  className="transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </a>
+            </StaggerItem>
+            <StaggerItem>
+              <a
                 href={`mailto:${site.email}`}
                 className="inline-flex h-11 items-center gap-1.5 rounded-full border border-line px-6 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent"
               >

@@ -3,9 +3,16 @@
 import { nav } from "@/lib/content";
 import ThemeToggle from "./theme-toggle";
 import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 130,
+    damping: 26,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -31,7 +38,7 @@ export default function Header() {
             <a
               key={n.href}
               href={n.href}
-              className="hidden text-sm text-muted transition-colors hover:text-ink sm:inline"
+              className="relative hidden text-sm text-muted transition-colors after:absolute after:-bottom-1 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 after:content-[''] hover:text-ink hover:after:scale-x-100 sm:inline"
             >
               {n.label}
             </a>
@@ -39,6 +46,13 @@ export default function Header() {
           <ThemeToggle />
         </nav>
       </div>
+
+      {/* Reading progress - one accent hairline that fills as you scroll. */}
+      <motion.div
+        aria-hidden
+        style={{ scaleX: progress }}
+        className="absolute inset-x-0 bottom-0 h-px origin-left bg-accent"
+      />
     </header>
   );
 }

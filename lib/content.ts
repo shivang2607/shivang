@@ -12,12 +12,16 @@ export const site = {
   location: "India · open to remote & Bangalore",
   availability: "Open to opportunities",
   github: "https://github.com/shivang2607",
-  linkedin: "https://www.linkedin.com/in/shivang-khandelwal",
+  linkedin: "https://www.linkedin.com/in/shivang-khandelwal-0a58951bb",
   devlensRepo: "https://github.com/devlensio/devlensOSS",
   devlensNpm: "https://www.npmjs.com/package/@devlensio/cli",
   devlensSite: "https://devlens.io",
   devlensDemo: "https://youtu.be/6OMsk8lNv4c",
   resumePdf: "/resume.pdf",
+  // Rendered from resume.pdf (poppler at 200dpi → webp). Regenerate whenever the
+  // PDF changes, or the preview will show a stale page - see the skill.
+  resumePreview: "/resume-page-sm.webp",
+  resumePreviewFull: "/resume-page.webp",
 } as const;
 
 export type HeroStat = {
@@ -219,6 +223,7 @@ export const education = {
 } as const;
 
 export const nav = [
+  { label: "Résumé", href: "#resume" },
   { label: "Work", href: "#work" },
   { label: "Oracle", href: "#oracle" },
   { label: "Stack", href: "#stack" },
@@ -236,3 +241,23 @@ export const recruiterFacts: { term: string; detail: string }[] = [
   { term: "Education", detail: "B.Tech, IIIT Surat (2020 – 2024), CGPA 8.70" },
   { term: "Contact", detail: "shivangkh26@gmail.com · replies fast, no phone inquiries please" },
 ];
+
+// Résumé block - promoted to sit directly under the hero, because it is the one
+// artifact a hiring loop asks for first. The copy describes the document; the
+// preview itself is a raster of resume.pdf, so the two can never disagree.
+export const resume = {
+  kicker: "Résumé",
+  heading: ["One page.", "The whole record."],
+  lede: "Everything a hiring loop needs, on a single page: Oracle, DevLens, AniverseHD, and the numbers behind each. Typeset in LaTeX and kept in step with this site.",
+  meta: [
+    { term: "Format", detail: "A4 · one page · PDF" },
+    {
+      term: "Covers",
+      detail: "Oracle · DevLens · AniverseHD · Skills · Education",
+    },
+    {
+      term: "For",
+      detail: "Full-stack and AI-tooling roles, remote or Bangalore",
+    },
+  ],
+} as const;

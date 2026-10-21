@@ -1,6 +1,7 @@
 import Header from "@/components/header";
 import SmoothScroll from "@/components/smooth-scroll";
 import HeroSection from "@/components/sections/hero";
+import ResumeSection from "@/components/sections/resume";
 import RecruiterSection from "@/components/sections/recruiter";
 import ProofSection from "@/components/sections/proof";
 import OracleSection from "@/components/sections/oracle";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main id="top" className="flex-1">
         <HeroSection />
+        <ResumeSection />
         <RecruiterSection />
         <ProofSection />
         <OracleSection />

@@ -61,6 +61,20 @@ body {
   border-top: 1px solid var(--line);
 }
 
+/* The résumé sheet is white paper in both themes. On a night-mode page a
+   full-brightness A4 is a flashbang, so it sits slightly dimmed and warmed
+   toward paper until you engage with it - which also gives the hover a
+   "the page lights up" feel. */
+.resume-page {
+  transition: filter 300ms ease;
+}
+:root[data-theme="dark"] .resume-page {
+  filter: brightness(0.87) contrast(1.03) sepia(0.08);
+}
+:root[data-theme="dark"] .resume-stack:hover .resume-page {
+  filter: brightness(1);
+}
+
 /* Kickers: small tracked mono labels */
 .kicker {
   font-family: var(--font-mono);

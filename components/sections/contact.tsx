@@ -1,9 +1,10 @@
 import { site, education } from "@/lib/content";
 import { MaskLines, Reveal } from "../motion";
-import { FiArrowUpRight, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 
 // Act 6 - the close. Big type, direct channels, and the one-line education
 // note (kept small by design - recruiters come for company, skills, projects).
+// The résumé link lives up top in its own section, not here.
 export default function ContactSection() {
   return (
     <footer id="contact" className="rule w-full border-line">
@@ -40,12 +41,6 @@ export default function ContactSection() {
               className="inline-flex h-12 items-center gap-2.5 rounded-full border border-line px-7 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
             >
               <FiLinkedin size={16} /> LinkedIn
-            </a>
-            <a
-              href={site.resumePdf}
-              className="inline-flex h-12 items-center gap-2 rounded-full border border-line px-7 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-            >
-              Résumé <FiArrowUpRight size={13} />
             </a>
           </div>
         </Reveal>
